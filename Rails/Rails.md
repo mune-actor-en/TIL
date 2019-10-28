@@ -46,3 +46,9 @@
 #### `rails g scaffold モデル名 カラム名:データ型`
 #### 補足
 ##### MVCをちゃんと理解していない内は使わない
+
+### エラー
+#### `ActiveRecord::NoDatabaseError`
+#### 試すこと
+- データベースを作成していない場合
+  - `rails db:create`
