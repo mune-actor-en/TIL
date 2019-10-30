@@ -20,7 +20,10 @@
 ## 作成したアプリ一覧を表示
 - `heroku list`
 ## アプリ情報を表示
-- `heroku apps:info`
+- `heroku info`
+## 環境変数の確認
+- `heroku config`
+- `heroku config --app アプリ名`
 ## ログアウト
 - `heroku logout`
 ##  ログ確認
@@ -39,6 +42,8 @@
 ---
 ## Herokuで実行しているアプリのRubyバージョンを表示
 - `heroku run "ruby -v"`
+## GitリポジトリのURL確認
+- `git remote -v`
 ## PostgreSQLへログイン
 - `heroku pg:psql`
 ### ログイン中のPostgreSQLコマンド操作
