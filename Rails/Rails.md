@@ -52,3 +52,8 @@
 #### 試すこと
 - データベースを作成していない場合
   - `rails db:create`
+### DBの指定
+- rails new アプリケーション名 -d mysql
+- rails new アプリケーション名 -d postgresql
+### DBの更新
+- `bundle exec rake db:create`
