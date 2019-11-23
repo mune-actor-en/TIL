@@ -38,6 +38,11 @@
 ##### カラム名を変更する
 - `rename_column :テーブル名, :変更前のカラム名, :変更後のカラム名`
   - 作成されたファイルにある`changeメソッド`に変更したいカラム名を記述する
+### DBの指定
+- rails new アプリケーション名 -d mysql
+- rails new アプリケーション名 -d postgresql
+### DBの更新
+- `bundle exec rake db:create`
 #### 補足
 -  一度作成したら`ファイルを直接「変更」「削除」は一切しない`
 ---
@@ -52,8 +57,3 @@
 #### 試すこと
 - データベースを作成していない場合
   - `rails db:create`
-### DBの指定
-- rails new アプリケーション名 -d mysql
-- rails new アプリケーション名 -d postgresql
-### DBの更新
-- `bundle exec rake db:create`
