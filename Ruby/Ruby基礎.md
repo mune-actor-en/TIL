@@ -11,3 +11,7 @@
 def initialize(**params)
 end
 ```
+# セッターとゲッター
+- attr_reader : 読み取りメソッド
+- attr_writer : 書き込みメソッド
+- attr_accesor : 読み取りと書き込みメソッドの両方
