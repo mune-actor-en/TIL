@@ -52,5 +52,5 @@ git version 2.24.0
 ## Macのターミナルでコマンド補完を有効にする
 - `.bashrc`に設定すると補完される
 - `bash-completion`はコマンド補完のツールのこと
-`source /usr/local/etc/bash_completion.d/git-prompt.sh`
-`source /usr/local/etc/bash_completion.d/git-completion.bash`
+  - `source /usr/local/etc/bash_completion.d/git-prompt.sh`
+  - `source /usr/local/etc/bash_completion.d/git-completion.bash`
