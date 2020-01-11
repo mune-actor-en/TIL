@@ -1,7 +1,13 @@
 # よく使うコマンド
 
 # シチュエーション別コマンド集
-
+## プルリクからローカル反映までの手順
+1. Githubのサイトへ行き、「Pull request」のタブをクリック
+2. 「Marge pull request」ボタンをクリック後、コメントを入力して「Confirm marge」ボタンをクリック
+3. 「Pull request successfully marged」と表示されればOK
+4. ローカルに反映させるため、ターミナルで以下のコマンドを入力
+- git fetch
+- git merge origin/master(リモートブランチ名)
 # 設定
 ## MacのGitバージョンアップ手順
 1. 現在のバージョンを確認する

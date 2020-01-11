@@ -5,6 +5,9 @@
 
 `bundle exec`をつけない場合、通常はインストールされている最新バージョンのgemが実行される。
 ## アプリケーション作成
+- アプリを作成するディレクトリに移動したら`bundle init`を実行する
+  - `bundle init`を実行すると、Gemfileが生成されるのでその中でgemを指定して書き換える
+  - PCにある本体にgemをインストールできるが上記のやり方を推奨
 ### コマンド
 - `rails new アプリケーション名`
 
@@ -40,7 +43,14 @@ Model名は**単数形**にする
 ---
 ## Gem
 ### Gemfile
+#### Gemfileから使わなくなったgemを削除
+1. `bundle update`を実行し、Gemfile.lockから削除したgemの情報を削除
+2. `bundle clean`を実行。するとgemが削除された旨が表示され、インストール先のgemsフォルダから実体が削除される。
 ### Gemfile.lock
+- Gemfileで指定したバージョンのgemが記録される
+- 書き換えるのは禁止（Gemfileとの整合性が合わなくなる）
+- バージョン変更する場合は、Gemfileで書き換えする
+  - 書き換え後、`bundle install` or `bundle update`を実行
 ---
 ## Migration
 役割：処理を実行（ロジックを書く）
