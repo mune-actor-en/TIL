@@ -61,8 +61,8 @@ Model名は**単数形**にする
 - `rename_column :テーブル名, :変更前のカラム名, :変更後のカラム名`
   - 作成されたファイルにある`changeメソッド`に変更したいカラム名を記述する
 #### DBの指定
-- rails new アプリケーション名 -d mysql
-- rails new アプリケーション名 -d postgresql
+- `rails new アプリケーション名 -d mysql`
+- `rails new アプリケーション名 -d postgresql`
 #### DBの更新
 - `bundle exec rake db:create`
 ### 補足
@@ -72,3 +72,17 @@ Model名は**単数形**にする
 #### `ActiveRecord::NoDatabaseError`
 - データベースを作成していない場合
   - `rails db:create`
+
+### 新規アプリケーション作成手順
+1. バージョン切り替えを考慮して、Rubyのバージョンを指定する
+- `rbenv local バージョン名`
+2. 新規アプリケーションを作成したいディレクトリでGemfileを作成する
+- `bundle init`
+3. Railsをインストールする
+- `bundle install`
+4. バージョン確認する
+- `bundle exec rails -v`
+5. DBを指定して新規アプリケーションを作成する
+- `bundle exec rails new アプリ名 -d postgresql`
+6. DBを構築する
+- `bin/rails db:create`
