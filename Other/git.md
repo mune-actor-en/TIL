@@ -26,7 +26,7 @@
 7. 新しいリモート先に資源をアップロードする
 - `git push 新しいリモート先（URLの場合：https:～.git）`
 - `git push 新しいリモート先（SSHの場合：〇〇@github.com:～.git）`
-参考
+#### 参考
 - [gitリポジトリの複製](https://qiita.com/syuji-higa/items/e380289502c7896daf0f)
 - [Github公式（Adding a remote）](https://help.github.com/en/github/using-git/adding-a-remote)
 ## 設定
