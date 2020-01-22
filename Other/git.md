@@ -1,5 +1,19 @@
 # Git
 ## シチュエーション別コマンド集
+### 新規リポジトリ作成〜初めてのpushまでの手順
+1. Githubのサイトへ行き、「New Repogitory」をクリック
+2. リポジトリ名を入力し、「Create」をクリック
+3. ローカル環境で以下のコマンドを入力する（新しくファイル等を作る）
+`git init`
+`git add`
+`git commit -m "first commit"`
+4. Githubのサイトで新規作成したリポジトリの「HTTPS」か「SSH」のパスをコピーする
+5. 再びローカル環境に戻り、以下のコマンドを入力する
+`git remote add origin HTTPSかSSH`
+6. 向き先を登録したので、先ほどコミットした資源をpushする
+`git push -u origin master`
+
+---
 ### プルリクからローカル反映までの手順
 1. Githubのサイトへ行き、「Pull request」のタブをクリック
 2. 「Marge pull request」ボタンをクリック後、コメントを入力して「Confirm marge」ボタンをクリック
@@ -81,3 +95,6 @@ git version 2.24.0
 - `bash-completion`はコマンド補完のツールのこと
   - `source /usr/local/etc/bash_completion.d/git-prompt.sh`
   - `source /usr/local/etc/bash_completion.d/git-completion.bash`
+### すでにGit管理下にある、またはコミット済みのファイルを無視したい
+`git rm --cached 相対パス名`
+「--cached」オプションは、Gitの管理対象から外すが、手元からは削除されず残しておきたい場合につける
