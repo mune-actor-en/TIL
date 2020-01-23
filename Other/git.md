@@ -30,8 +30,8 @@
 3. 新しく「.git」ディレクトリを作成する
 - `git init`
 4. リモート先を追加する（「.git」ディレクトリを新規作成したが、リモート先情報が空なので指定する必要がある）
-- ` git remote add 新しいリモート先（URLの場合：https:～.git）`
-- ` git remote add 新しいリモート先（SSHの場合：〇〇@github.com:～.git）`
+- ` git remote add origin 新しいリモート先（URLの場合：https:～.git）`
+- ` git remote add origin 新しいリモート先（SSHの場合：〇〇@github.com:～.git）`
 5. 新しいリモート先になっているか確認する
 - `git remote -v`
 6. リモート元でクローンした資源を「add」「commit」する（「4. リモート先を追加する」と同様、「.git」ディレクトリを新規作成したため）
