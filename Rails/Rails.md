@@ -147,6 +147,10 @@ Model 名は**単数形**にする
   最低限必要な「コントローラ」「モデル」「ビュー」「ルーティング」を全て一括作成できる。
   ※MVC を理解してから扱う。
 
+### macOSのソフトウェアアップデート後にrailsコマンドが受け付けられない
+`brew upgrade`
+Homebrew + Homebrewでインストールしたパッケージのアップデートが実行される
+
 ---
 
 ## Tips
@@ -176,6 +180,16 @@ Model 名は**単数形**にする
 - データベースを作成していない場合
   - `rails db:create`
 
+#### `LoadError`
+
+**原因**
+
+- Homebrew でパッケージをアップグレードしたことにより、OpenSSL のバージョンが上がった
+- ruby が参照していたバージョンの OpenSSL がなくなったことにより、エラーが発生
+
+**対処**
+rbenv で ruby を再インストール
+
 ---
 
 ## テンプレート
@@ -202,7 +216,7 @@ Model 名は**単数形**にする
 
 - `bundle exec rails new アプリ名 -d postgresql`
 
-1. DB を構築する
+6. DB を構築する
 
 - `bin/rails db:create`
 
