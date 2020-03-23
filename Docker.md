@@ -9,15 +9,15 @@
 マルチステージビルドとは、開発環境用のDockerイメージと本番環境用のDockerイメージを同時に作成できる機能のこと。<br>
 できるだけ本番環境は必要なモジュールだけを用意して、軽量な環境にしておくことが望ましい。
 ### Dockerfileの作成
-1. サンプルコードをクローンする
+1. サンプルコードをクローンする<br>
 `git clone https://github.com/asashiho/dockertext2`
-1. 作業ディレクトリに移動してDockerfileの中身を確認する
-`cd dockertext2/chap05/multi-stage`
+1. 作業ディレクトリに移動してDockerfileの中身を確認する<br>
+`cd dockertext2/chap05/multi-stage`<br>
 `open Dockerfile`
 ### Dockerfileのビルド
-1. Dockerfileをビルドする
+1. Dockerfileをビルドする<br>
 `docker build -t greet .`
-1. Dockerイメージの中身と容量を確認する
+1. Dockerイメージの中身と容量を確認する<br>
 `docker image ls`
 ```
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
