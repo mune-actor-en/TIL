@@ -1,5 +1,6 @@
 # Docker
-オープンソースのコンテナ管理ソフトウェア
+オープンソースのコンテナ管理ソフトウェア。<br>
+公式URL：[docer docs](https://docs.docker.com/docker-for-mac/docker-toolbox/)
 ## メリット
 - 「Dockerfile」「Dockerイメージ」「Dockerレジストリ」を使って、柔軟にアプリケーション環境やインフラ環境をまとめて管理できる
 - 必要な時に起動する、不要な時は破棄するという使い捨ての運用が可能
@@ -21,8 +22,6 @@ AWSのEC2やMicrosoft Azureなどのクラウド環境などにDockerの実行�
 複数のDockerホストをクラスタ化するコンポーネント。<br>
 ただし、昨今ではオープンソースである「Kubernetes」がその役割を担うことが多い。
 
----
-## 公式URL：[docer docs](https://docs.docker.com/docker-for-mac/docker-toolbox/)
 ---
 ## コマンド
 参考URL：[いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1)
