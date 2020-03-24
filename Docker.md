@@ -1,9 +1,33 @@
 # Docker
+オープンソースのコンテナ管理ソフトウェア
+## メリット
+- 「Dockerfile」「Dockerイメージ」「Dockerレジストリ」を使って、柔軟にアプリケーション環境やインフラ環境をまとめて管理できる
+- 必要な時に起動する、不要な時は破棄するという使い捨ての運用が可能
+## デメリット
+- 永続的なデータを保存する場合には不向き
+---
+## Dockerのコンポーネント
+コアな機能である「Docker Engine」を中心に各コンポーネントと連携して環境を構築する。
+### Docker Engine(Dockerのコア機能)
+Dockerイメージの生成、コンテナの起動などを担うコアコンポーネント。
+### Docker Registry(イメージの公開・共有)
+Dockerイメージの公開や共有するコンポーネント。
+### Docker Compose(複数のコンテナを一元管理)
+「docker-compose.yml」に複数のコンテナの構成情報を定義し、コマンドを実行することで一元管理するコンポーネント。
+### Docker Machine(Dockerの実行環境を構築)
+AWSのEC2やMicrosoft Azureなどのクラウド環境などにDockerの実行環境をコマンドで自動生成するコンポーネント。
+### Docker Swarm(クラスタ管理)
+クラスタとは「群れ・集団」という意味で、密集しているということ。<br>
+複数のDockerホストをクラスタ化するコンポーネント。<br>
+ただし、昨今ではオープンソースである「Kubernetes」がその役割を担うことが多い。
+
+---
 ## 公式URL：[docer docs](https://docs.docker.com/docker-for-mac/docker-toolbox/)
 ---
 ## コマンド
 参考URL：[いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1)
 ### 
+
 ---
 ## マルチステージビルドによるアプリケーション開発
 マルチステージビルドとは、開発環境用のDockerイメージと本番環境用のDockerイメージを同時に作成できる機能のこと。<br>
