@@ -23,9 +23,65 @@ AWSのEC2やMicrosoft Azureなどのクラウド環境などにDockerの実行�
 ただし、昨今ではオープンソースである「Kubernetes」がその役割を担うことが多い。
 
 ---
-## コマンド
-参考URL：[いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1)
-### 
+## Linux
+### Linuxカーネル
+OSとしてハードウェアやアプリケーションを制御する基本的な機能を有したコアな部分のこと。
+### Linuxディストリビューション
+パッケージ化して配布されているLinuxのこと。
+それぞれにコマンドやライブラリ、アプリケーションに違いがある。
+### Linuxの主要ディレクトリ
+|名称|機能|
+|:--|:--|
+|/bin|lsコマンドやcpコマンドなどの基本的なコマンド群を格納しているディレクトリ。 |
+|/boot|OSの起動に必要なファイルを格納しているディレクトリ。<br>Linuxカーネルは「vmlinuz」というファイル。|
+|/dev|ハードディスク・キーボード・デバイスファイルを格納しているディレクトリ。<br>「何もない」を表す「dev/null」も用意されている。「dev/null」はからのファイルの生成や不要な出力を破棄する場合に使われる。|
+|/etc|OSやアプリケーションが動作する上で必要な設定ファイルを格納しているディレクトリ。|
+|/home|一般ユーザーのホームディレクトリを指す。<br>特権ユーザー(root)は「/root」をホームディレクトリとして使う。|
+|/proc|カーネルやプロセスに関する情報を格納しているディレクトリ。<br>配下にある数字のディレクトリはプロセスIDを意味する。|
+|/sbin|システム管理用コマンドが格納されているディレクトリ。<br>mountコマンドやrebootコマンドなど。|
+|/tmp|一時的に使用するファイルなどを格納しているテンポラリディレクトリ。<br>メモリ上に展開されているため、再起動すると消えてしまう。|
+|/usr|各種プログラムやカーネルソースを格納しているディレクトリ。|
+|/var|システムの稼働とともに変化するファイルを格納するディレクトリ。<br>稼働ログは「/var/log」、アプリケーションが一時ファイルとして使用するスプールが保存されているのは「/var/spool」|
+
+---
+## Dockerコマンド
+|説明|コマンド|補足|
+|:--|:--|:--|
+|コンテナの起動|docker container start||
+|コンテナの停止|docker container stop||
+|コンテナの再起動|docker container restart||
+|コンテナの削除|docker container rm||
+|コンテナの中断|docker container pause||
+|コンテナの再開|docker container unpause||
+|コンテナの生成／起動|docker container run|docker container run オプション イメージ名:タグ名 引数|
+|docker container runの対話的実行|docker container run -it --name "test1" centos /bin/cal|コンテナを作成／実行 コンソールに結果を出すオプション コンテナ名 イメージ名 コンテナで実行するコマンド（カレンダーをコンソールに上に表示）|
+|コンテナのバックグラウンド実行|docker container run -d centos /bin/ping localhost||
+|稼働コンテナの一覧表示|docker container ls||
+|稼働コンテナへの接続|docker container attach||
+|稼働コンテナでプロセス実行|docker container exec|バックグラウンドで実行しているWebサーバのコンテナにアクセスする場合に実行する。<br>シェルが動作していない場合は「docker container attach」を実行して接続しても受け付けられない。|
+|コンテナの稼働を確認|docker container stats||
+|ネットワークの一覧表示|docker network ls||
+|ネットワークへの接続|docker network connect オプション ネットワーク名 コンテナ名||
+|ネットワークへの切断|docker network disconnect オプション ネットワーク名 コンテナ名||
+|ネットワークの詳細確認|docker network inspect オプション ネットワーク名||
+
+|説明|オプション|
+|:--|:--|
+|標準入力・標準出力・標準エラー出力にアタッチする|--attach, -a|
+|コンテナIDをファイルに出力する|-cidfile|
+|コンテナを生成し、バックグラウンドで実行する|--detach, -d|
+|コンテナの標準入力を開く|-interactive, -i|
+|端末デバイスを確保する|--tty, -t|
+
+---
+### Tips
+#### プロンプト
+$(プロンプト)とは、コマンドを入力できる表示のこと。<br>
+- `docker@default:~$`
+上記の例は、「docker」というユーザー名で「default」というホスト名のサーバーを操作しているという内容になる。<br>
+一般ユーザーは「$」、管理ユーザーは「#」の表記となる。
+
+
 
 ---
 ## マルチステージビルドによるアプリケーション開発
@@ -84,3 +140,5 @@ Dockerのメニューバーから「Troubleshoot」をクリックして、「Re
   2. 診断ファイルが発行されるので、診断ファイルを`open /tmp/ユーザーID/タイムスタンプ.zip`で開く
 
 ---
+## 参考URL
+- [いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1)
