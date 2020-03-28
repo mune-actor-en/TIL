@@ -56,9 +56,13 @@ OSとしてハードウェアやアプリケーションを制御する基本的
 |コンテナの生成／起動|docker container run|docker container run オプション イメージ名:タグ名 引数|
 |docker container runの対話的実行|docker container run -it --name "test1" centos /bin/cal|コンテナを作成／実行 コンソールに結果を出すオプション コンテナ名 イメージ名 コンテナで実行するコマンド（カレンダーをコンソールに上に表示）|
 |コンテナのバックグラウンド実行|docker container run -d centos /bin/ping localhost||
+|コンテナの名前変更|docker container rename|docker container rename 旧コンテナ名 新コンテナ名|
+|コンテナ操作の差分確認|docker container diff|docker container diff コンテナ識別子（コンテナ名） <br>・ファイル追加：「A」<br>・ファイル更新：「C」 <br>・ファイル削除：「D」|
 |稼働コンテナの一覧表示|docker container ls||
 |稼働コンテナへの接続|docker container attach||
-|稼働コンテナでプロセス実行|docker container exec|バックグラウンドで実行しているWebサーバのコンテナにアクセスする場合に実行する。<br>シェルが動作していない場合は「docker container attach」を実行して接続しても受け付けられない。|
+|稼働コンテナでプロセス実行|docker container exec|バックグラウンドで実行しているWebサーバのコンテナにアクセスする場合に実行する。<br>※シェルが動作していない場合は「docker container attach」を実行して接続しても受け付けられない。|
+|稼働コンテナのプロセス確認|docker container top|docker container top コンテナ名|
+|稼働コンテナのポート転送確認|docker container port|docker container port コンテナ名|
 |コンテナの稼働を確認|docker container stats||
 |ネットワークの一覧表示|docker network ls||
 |ネットワークへの接続|docker network connect オプション ネットワーク名 コンテナ名||
@@ -69,9 +73,16 @@ OSとしてハードウェアやアプリケーションを制御する基本的
 |:--|:--|
 |標準入力・標準出力・標準エラー出力にアタッチする|--attach, -a|
 |コンテナIDをファイルに出力する|-cidfile|
-|コンテナを生成し、バックグラウンドで実行する|--detach, -d|
-|コンテナの標準入力を開く|-interactive, -i|
+|バックグラウンドで実行する|--detach, -d|
+|標準入力を開く|-interactive, -i|
 |端末デバイスを確保する|--tty, -t|
+
+---
+## Dockerfile作成〜コンテナ起動の手順
+1. 
+2. 
+3. 
+
 
 ---
 ### Tips
