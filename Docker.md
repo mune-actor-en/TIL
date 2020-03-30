@@ -68,6 +68,7 @@ Linuxカーネル以外の部分を「ユーザーランド」という。<br>
 |稼働コンテナのプロセス確認|docker container top|docker container top コンテナ名|
 |稼働コンテナのポート転送確認|docker container port|docker container port コンテナ名|
 |コンテナの稼働を確認|docker container stats||
+|コンテナからイメージを作成|docker container commit|docker container commit オプション コンテナ識別子 イメージ名:タグ名 <br> 【主なオプション】 <br> ・-author, -a:作成者を指定する <br>・-message, -m:メッセージを指定する <br>・-change, -c:コミット時のDockerfile命令を指定 <br>・-pause, -p:コンテナを一時停止してコミットする <br>【例】docker container commit -a "YUSUKE GODAI" webserver yusukegodai/webfront:1.0|
 |ネットワークの一覧表示|docker network ls||
 |ネットワークへの接続|docker network connect オプション ネットワーク名 コンテナ名||
 |ネットワークへの切断|docker network disconnect オプション ネットワーク名 コンテナ名||
