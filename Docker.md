@@ -47,6 +47,24 @@ Linuxカーネル以外の部分を「ユーザーランド」という。<br>
 |/usr|各種プログラムやカーネルソースを格納しているディレクトリ。|
 |/var|システムの稼働とともに変化するファイルを格納するディレクトリ。<br>稼働ログは「/var/log」、アプリケーションが一時ファイルとして使用するスプールが保存されているのは「/var/spool」|
 
+### Linuxコマンド
+|説明|コマンド|補足|
+|:--|:--|:--|
+|ディレクトリの移動|cd|`cd ディレクトリ名`|
+|ディレクトリの中身を確認|ls|ディレクトリに移動後に、`ls`|
+|ディレクトリ・ファイルの移動|mv|`mv 移動元ディレクトリ名 移動先ディレクトリ名`|
+|ディレクトリ・ファイルのコピー|cp|`cp コピー元ディレクトリ コピー先ディレクトリ名`|
+|ターミナルの履歴を消去|clear| |
+|ディレクトリの作成|mkdir|`mkdir ディレクトリ名`|
+|ファイルの作成|touch|`touch ファイル名`|
+|対象コマンドのマニュアルを表示|man|`man 対象コマンド名`|
+|コマンドの履歴を表示|history| |
+|ファイルの中身を表示|cat|`cat ファイル名`|
+|buファイルとファイルの差分を確認|diff|`diff 旧ファイル 新ファイル`|
+|tar形式のファイル作成または展開|tar| |
+|カレンダーの表示|cal|`cal 4 2020`|
+|日付の表示|date| |
+
 ---
 ## Dockerコマンド
 |説明|コマンド|補足|
@@ -57,18 +75,23 @@ Linuxカーネル以外の部分を「ユーザーランド」という。<br>
 |コンテナの削除|docker container rm||
 |コンテナの中断|docker container pause||
 |コンテナの再開|docker container unpause||
-|コンテナの生成／起動|docker container run|docker container run オプション イメージ名:タグ名 引数|
+|コンテナの生成／起動|docker container run|`docker container run オプション イメージ名:タグ名 引数`|
 |docker container runの対話的実行|docker container run -it --name "test1" centos /bin/cal|コンテナを作成／実行 コンソールに結果を出すオプション コンテナ名 イメージ名 コンテナで実行するコマンド（カレンダーをコンソールに上に表示）|
 |コンテナのバックグラウンド実行|docker container run -d centos /bin/ping localhost||
-|コンテナの名前変更|docker container rename|docker container rename 旧コンテナ名 新コンテナ名|
-|コンテナ操作の差分確認|docker container diff|docker container diff コンテナ識別子（コンテナ名） <br>・ファイル追加：「A」<br>・ファイル更新：「C」 <br>・ファイル削除：「D」|
+|コンテナの名前変更|docker container rename|`docker container rename 旧コンテナ名 新コンテナ名`|
+|コンテナ操作の差分確認|docker container diff|`docker container diff コンテナ識別子（コンテナ名）` <br>・ファイル追加：「A」<br>・ファイル更新：「C」 <br>・ファイル削除：「D」|
 |稼働コンテナの一覧表示|docker container ls||
 |稼働コンテナへの接続|docker container attach||
-|稼働コンテナでプロセス実行|docker container exec|バックグラウンドで実行しているWebサーバのコンテナにアクセスする場合に実行する。<br>※シェルが動作していない場合は「docker container attach」を実行して接続しても受け付けられない。|
-|稼働コンテナのプロセス確認|docker container top|docker container top コンテナ名|
-|稼働コンテナのポート転送確認|docker container port|docker container port コンテナ名|
+|稼働コンテナでプロセス実行|docker container exec|バックグラウンドで実行しているWebサーバのコンテナにアクセスする場合に実行する。<br>※シェルが動作していない場合は「`docker container attach`」を実行して接続しても受け付けられない。|
+|稼働コンテナのプロセス確認|`docker container top|docker container top コンテナ名`|
+|稼働コンテナのポート転送確認|docker container port|`docker container port コンテナ名`|
 |コンテナの稼働を確認|docker container stats||
-|コンテナからイメージを作成|docker container commit|docker container commit オプション コンテナ識別子 イメージ名:タグ名 <br> 【主なオプション】 <br> ・-author, -a:作成者を指定する <br>・-message, -m:メッセージを指定する <br>・-change, -c:コミット時のDockerfile命令を指定 <br>・-pause, -p:コンテナを一時停止してコミットする <br>【例】docker container commit -a "YUSUKE GODAI" webserver yusukegodai/webfront:1.0|
+|コンテナからイメージを作成|docker container commit|`docker container commit オプション コンテナ識別子 イメージ名:タグ名` <br> 【主なオプション】 <br> ・`-author, -a`:作成者を指定する <br>・-message, -m:メッセージを指定する <br>・`-change, -c`:コミット時のDockerfile命令を指定 <br>・`-pause, -p`:コンテナを一時停止してコミットする <br>【例】`docker container commit -a "YUSUKE GODAI" webserver yusukegodai/webfront:1.0`|
+|コンテナをtarファイルに出力する|docker container export|`docker container export コンテナ識別子（コンテナ名）` <br> ※コンテナのディレクトリやファイルをまとめて「tarファイル」に作成でき、tarファイルをもとにしてコンテナを稼働できる。<br>・ファイル出力 <br>`docker container export コンテナ名 > 出力ファイル名.tar` <br>・生成されたtarファイルの詳細確認 <br>`tar -tf 出力ファイル名.tar`|
+|tarファイルからイメージを作成|docker image import|`docker image import ファイルまたはURL - イメージ名:タグ名`|
+|イメージの保存|docker image save|`docker image save -o 保存ファイル名` <br>※保存するファイル名の指定は「`-o`」を使う。|
+|イメージの読み込み|docker image load|`docker image load -i 読み込みファイル名` <br>※読み込むファイル名の指定は「`-i`」を使う。<br><br>※`export`と`save`はもとのイメージは同じだが、内部的なディレクトリやファイルの構造に違いがある。そのため、読み込む場合は以下のように使い分ける。<br>・docker image `export` ⇨ docker image `import` <br>・docker image `save` ⇨ docker image `load`|
+|不要なイメージやコンテナを一括削除|docker system purne|`docker system prune オプション` <br>・`--all,-a`:使用していないリソースを全て削除 <br>・`--force,-f`:強制的に削除|
 |ネットワークの一覧表示|docker network ls||
 |ネットワークへの接続|docker network connect オプション ネットワーク名 コンテナ名||
 |ネットワークへの切断|docker network disconnect オプション ネットワーク名 コンテナ名||
