@@ -1,6 +1,6 @@
 # Docker
 オープンソースのコンテナ管理ソフトウェア。<br>
-公式URL：[docer docs](https://docs.docker.com/docker-for-mac/docker-toolbox/){:target="_blank"}
+公式URL：[docer docs](https://docs.docker.com/docker-for-mac/docker-toolbox/)
 ## メリット
 - 「Dockerfile」「Dockerイメージ」「Dockerレジストリ」を使って、柔軟にアプリケーション環境やインフラ環境をまとめて管理できる
 - 必要な時に起動する、不要な時は破棄するという使い捨ての運用が可能
@@ -247,10 +247,10 @@ Dockerのメニューバーから「Troubleshoot」をクリックして、「Re
 
 ---
 ## 参考URL
-- [いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1){:target="_blank"}
-- [【図解】Dockerの全体像を理解する -前編-](https://qiita.com/etaroid/items/b1024c7d200a75b992fc){:target="_blank"}
-- [【図解】Dockerの全体像を理解する -中編-](https://qiita.com/etaroid/items/88ec3a0e2d80d7cdf87a){:target="_blank"}
-- [DockerのDの字も分からない状態を抜け出すためにやって良かったことをまとめてみる](https://qiita.com/a-pompom/items/bf568322b190d0e283b6){:target="_blank"}
-- [Mac OSXでDocker Toolboxのアンインストール](https://qiita.com/minamijoyo/items/ec5b35382797ac08e067){:target="_blank"}
+- [いまさらだけどDockerに入門したので分かりやすくまとめてみた](https://qiita.com/gold-kou/items/44860fbda1a34a001fc1)
+- [【図解】Dockerの全体像を理解する -前編-](https://qiita.com/etaroid/items/b1024c7d200a75b992fc)
+- [【図解】Dockerの全体像を理解する -中編-](https://qiita.com/etaroid/items/88ec3a0e2d80d7cdf87a)
+- [DockerのDの字も分からない状態を抜け出すためにやって良かったことをまとめてみる](https://qiita.com/a-pompom/items/bf568322b190d0e283b6)
+- [Mac OSXでDocker Toolboxのアンインストール](https://qiita.com/minamijoyo/items/ec5b35382797ac08e067)
 ## 参考書籍
-- [プログラマのためのDocker教科書 第2版 インフラの基礎知識&コードによる環境構築の自動化](https://www.amazon.co.jp/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEDocker%E6%95%99%E7%A7%91%E6%9B%B8-%E7%AC%AC2%E7%89%88-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E3%81%AE%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%AE%E8%87%AA%E5%8B%95%E5%8C%96-WINGS%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/dp/4798153222/ref=pd_sbs_14_t_0/355-9758235-4938665?_encoding=UTF8&pd_rd_i=4798153222&pd_rd_r=1eabab89-335c-4fe4-80aa-96f217e9e8f6&pd_rd_w=Py3gA&pd_rd_wg=7xyVW&pf_rd_p=12ccc166-d38a-46fc-ac62-0d9d20b0afd0&pf_rd_r=164X1YTXRNA0QYMZW2D6&psc=1&refRID=164X1YTXRNA0QYMZW2D6){:target="_blank"}
+- [プログラマのためのDocker教科書 第2版 インフラの基礎知識&コードによる環境構築の自動化](https://www.amazon.co.jp/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEDocker%E6%95%99%E7%A7%91%E6%9B%B8-%E7%AC%AC2%E7%89%88-%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9%E3%81%AE%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%AE%E8%87%AA%E5%8B%95%E5%8C%96-WINGS%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/dp/4798153222/ref=pd_sbs_14_t_0/355-9758235-4938665?_encoding=UTF8&pd_rd_i=4798153222&pd_rd_r=1eabab89-335c-4fe4-80aa-96f217e9e8f6&pd_rd_w=Py3gA&pd_rd_wg=7xyVW&pf_rd_p=12ccc166-d38a-46fc-ac62-0d9d20b0afd0&pf_rd_r=164X1YTXRNA0QYMZW2D6&psc=1&refRID=164X1YTXRNA0QYMZW2D6)
