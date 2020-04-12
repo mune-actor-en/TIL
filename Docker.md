@@ -161,15 +161,15 @@ $(プロンプト)とは、コマンドを入力できる表示のこと。<br>
 ### docker-compose.yml
 「docker-compose.yml」とは、稼働させる複数のサーバーの設定や構成をYAML形式で定義したもの。<br>
 YAMLは「構造化されたデータを表現する」データフォーマットのこと。<br>
-インデントはタブではなく、**半角スペース**を使う。配列を表現する場合、データの先頭に「`-`」をつける。「`-`」の後には必ず半角スペースを入れる。<br>
+インデントはタブではなく、**半角スペース**を使う。配列を表現する場合、データの先頭に「-」をつける。「-」の後には必ず半角スペースを入れる。<br>
 
 ---
 ### Docker Composeコマンド
 docker-composeコマンドは、docker-commpose.ymlを保存したディレクトリで実行する。仮に現在のディレクトリ以外でdocker-composeコマンドを実行する場合は、「-f」オプションでファイルを指定する必要がある。<br>
-**カレントディレクトリ以外で、docker-commpose.ymlを基にコンテナを生成、または起動する** <br>
+#### カレントディレクトリ以外で、docker-commpose.ymlを基にコンテナを生成、または起動する
 `docker-compose -f ./sample/dcoker-compose.yml up` <br>
 サブコマンドの後ろに「コンテナ名」を指定すると、指定したコンテナのみを操作できる。<br>
-**特定したコンテナを操作する** <br>
+#### 特定したコンテナを操作する
 `docker-compose stop webserver（指定したコンテナ名）` <br>
 
 ### docker-composeの基本コマンド
@@ -229,21 +229,21 @@ hello-world         latest              fce289e99eb9        14 months ago       
 #### 解決した方法
 Dockerのメニューバーから「Troubleshoot」をクリックして、「Reset to factory defaults」を実行した。
 #### その他試したこと
-- 前バージョンのDockerをインストールしていたので、Docker Toolboxのアンインストールするバッチを実行
-  1. `git clone git@github.com:docker/toolbox.git`で公式が提供している資源を取り込む
-    - [Qiita:Mac OSXでDocker Toolboxのアンインストール](https://qiita.com/minamijoyo/items/ec5b35382797ac08e067)
-  2. `cd toolbox`でディレクトリに移動して、`sudo osx/uninstall.sh`を実行してアンインストール
-- MacがHypervisorフレームワークをサポートしているかどうかを確認
-  1. `sysctl kern.hv_support`
-  2. MacがHypervisor Frameworkをサポートしている場合、`kern.hv_support: 1`となり、サポートされていない場合は`kern.hv_support: 0`となる。
-- ログのライブフローを確認
-  1. `pred='process matches ".*(ocker|vpnkit).*" || (process in {"taskgated-helper","launchservicesd", "kernel"} && eventMessage contains[c] "docker")'`
-  2. `/usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred"`
-  3. `/usr/bin/log show --debug --info --style syslog --last 1d --predicate "$pred" >/tmp/logs.txt`でログの最終日を確認
-- ログを確認
+1. 前バージョンのDockerをインストールしていたので、Docker Toolboxのアンインストールするバッチを実行
+  1-1. `git clone git@github.com:docker/toolbox.git`で公式が提供している資源を取り込む
+    - [Mac OSXでDocker Toolboxのアンインストール](https://qiita.com/minamijoyo/items/ec5b35382797ac08e067)
+  1-2. `cd toolbox`でディレクトリに移動して、`sudo osx/uninstall.sh`を実行してアンインストール
+2. MacがHypervisorフレームワークをサポートしているかどうかを確認
+  2-1. `sysctl kern.hv_support`
+  2-2. MacがHypervisor Frameworkをサポートしている場合、`kern.hv_support: 1`となり、サポートされていない場合は`kern.hv_support: 0`となる。
+3. ログのライブフローを確認
+  3-1. `pred='process matches ".*(ocker|vpnkit).*" || (process in {"taskgated-helper","launchservicesd", "kernel"} && eventMessage contains[c] "docker")'`
+  3-2. `/usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred"`
+  3-3. `/usr/bin/log show --debug --info --style syslog --last 1d --predicate "$pred" >/tmp/logs.txt`でログの最終日を確認
+4. ログを確認
 「com.docker.diagnose」というツールが原因を調べてくれる
-  1. `/Applications/Docker.app/Contents/MacOS/com.docker.diagnose gather -upload`を実行
-  2. 診断ファイルが発行されるので、診断ファイルを`open /tmp/ユーザーID/タイムスタンプ.zip`で開く
+  4-1. `/Applications/Docker.app/Contents/MacOS/com.docker.diagnose gather -upload`を実行
+  4-2. 診断ファイルが発行されるので、診断ファイルを`open /tmp/ユーザーID/タイムスタンプ.zip`で開く
 
 ---
 ## 参考URL
