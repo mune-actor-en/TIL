@@ -230,20 +230,20 @@ hello-world         latest              fce289e99eb9        14 months ago       
 Dockerのメニューバーから「Troubleshoot」をクリックして、「Reset to factory defaults」を実行した。
 #### その他試したこと
 1. 前バージョンのDockerをインストールしていたので、Docker Toolboxのアンインストールするバッチを実行
-  1-1. `git clone git@github.com:docker/toolbox.git`で公式が提供している資源を取り込む
+  - `git clone git@github.com:docker/toolbox.git`で公式が提供している資源を取り込む
     - [Mac OSXでDocker Toolboxのアンインストール](https://qiita.com/minamijoyo/items/ec5b35382797ac08e067)
-  1-2. `cd toolbox`でディレクトリに移動して、`sudo osx/uninstall.sh`を実行してアンインストール
+  - `cd toolbox`でディレクトリに移動して、`sudo osx/uninstall.sh`を実行してアンインストール
 2. MacがHypervisorフレームワークをサポートしているかどうかを確認
-  2-1. `sysctl kern.hv_support`
-  2-2. MacがHypervisor Frameworkをサポートしている場合、`kern.hv_support: 1`となり、サポートされていない場合は`kern.hv_support: 0`となる。
+  - `sysctl kern.hv_support`
+  - MacがHypervisor Frameworkをサポートしている場合、`kern.hv_support: 1`となり、サポートされていない場合は`kern.hv_support: 0`となる。
 3. ログのライブフローを確認
-  3-1. `pred='process matches ".*(ocker|vpnkit).*" || (process in {"taskgated-helper","launchservicesd", "kernel"} && eventMessage contains[c] "docker")'`
-  3-2. `/usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred"`
-  3-3. `/usr/bin/log show --debug --info --style syslog --last 1d --predicate "$pred" >/tmp/logs.txt`でログの最終日を確認
+  - `pred='process matches ".*(ocker|vpnkit).*" || (process in {"taskgated-helper","launchservicesd", "kernel"} && eventMessage contains[c] "docker")'`
+  - `/usr/bin/log stream --style syslog --level=debug --color=always --predicate "$pred"`
+  - `/usr/bin/log show --debug --info --style syslog --last 1d --predicate "$pred" >/tmp/logs.txt`でログの最終日を確認
 4. ログを確認
 「com.docker.diagnose」というツールが原因を調べてくれる
-  4-1. `/Applications/Docker.app/Contents/MacOS/com.docker.diagnose gather -upload`を実行
-  4-2. 診断ファイルが発行されるので、診断ファイルを`open /tmp/ユーザーID/タイムスタンプ.zip`で開く
+  - `/Applications/Docker.app/Contents/MacOS/com.docker.diagnose gather -upload`を実行
+  - 診断ファイルが発行されるので、診断ファイルを`open /tmp/ユーザーID/タイムスタンプ.zip`で開く
 
 ---
 ## 参考URL
