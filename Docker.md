@@ -159,7 +159,35 @@ $(プロンプト)とは、コマンドを入力できる表示のこと。<br>
 ---
 ## Docker Compose
 ### docker-compose.yml
+「docker-compose.yml」とは、稼働させる複数のサーバーの設定や構成をYAML形式で定義したもの。<br>
+YAMLは「構造化されたデータを表現する」データフォーマットのこと。<br>
+インデントはタブではなく、**半角スペース**を使う。配列を表現する場合、データの先頭に「`-`」をつける。「`-`」の後には必ず半角スペースを入れる。<br>
 
+---
+### Docker Composeコマンド
+docker-composeコマンドは、docker-commpose.ymlを保存したディレクトリで実行する。仮に現在のディレクトリ以外でdocker-composeコマンドを実行する場合は、「-f」オプションでファイルを指定する必要がある。<br>
+**カレントディレクトリ以外で、docker-commpose.ymlを基にコンテナを生成、または起動する** <br>
+`docker-compose -f ./sample/dcoker-compose.yml up` <br>
+サブコマンドの後ろに「コンテナ名」を指定すると、指定したコンテナのみを操作できる。<br>
+**特定したコンテナを操作する** <br>
+`docker-compose stop webserver（指定したコンテナ名）` <br>
+
+### docker-composeの基本コマンド
+|説明|サブコマンド|補足|
+|:--|:--|:--|
+|複数コンテナの生成/起動|up|`docker-compose up オプション サービス名` <br>【主なオプション】 <br> ・`-d`:バックグラウンドで実行 <br>・`--no-deps`:リンクのサービスを起動しない <br>・`--build`:イメージをビルドする。コンテナ起動時にDockerfileをビルドする場合に指定する。 <br>・`--no-build`:イメージをビルドしない <br>・`-t, --timeout`:コンテナのタイムアウトを秒指定する <br>・`--scale サービス名=サービス数`:サービスの数を指定する。「samble1のコンテナを5個」「sample2のコンテナを10個」起動する場合は、以下のようにコマンドを実行する。<br>`docker-compose up --scale sample1=5 --scale sample2=10`|
+|複数コンテナの確認|ps|`docker-compose ps オプション` <br>docker-composeで起動した後も、通常のDockerコマンドも使用できる。【例】docker container ls<br>【主なオプション】 <br> ・`-q`:コンテナのIDを表示する。|
+|複数コンテナのログを確認|logs|`docker-compose logs`|
+|コンテナでコマンド実行|run|`docker-compose run コマンド名` <br>【例】`docker-compose run webserver /bin/bash`|
+|複数コンテナの起動|start|`docker-compose start`|
+|複数コンテナの停止|stop|`docker-compose stop`|
+|複数コンテナの一時停止|pause|`docker-compose pause`|
+|複数コンテナの再開|unpause|`docker-compose unpause`|
+|複数コンテナの再起動|restart|`docker-compose restart`|
+|docker-compose.ymlの構成内容を確認する|config|`docker-compose config`|
+|複数コンテナの強制停止|kill|`docker-compose kill` <br>オプションを指定せずにコマンドを実行すると、「SIGKILL」が送信される。SIGKILLはプロセスを強制終了させる。<br> Linuxではプログラムを実行した時、プログラムをメモリ上に配置する。配置されたプログラムが実行されることを「プロセス」という。プロセスに対して命令を送信することを「シグナル」という。<br>・`SIGINT`:キーボード割り込み。「Ctrl + C」で送信する。<br>・`SIGOUT`:キーボードによる中止。「Ctrl + \」で送信する。<br>・`SIGTERM`:プロセスを正常に終了する。<br>・`SIGKILL`:プロセスを強制終了する。<br>・`SIGSTOP`:プロセスを一時停止する。|
+|複数コンテナの削除|rm|`docker-compose rm` <br>コマンドを実行すると、確認メッセージが表示されるため、「y」か「N」を入力する。「-f」オプションを指定すると、強制的に削除する。|
+|複数リソースの一括削除|down|`docker-compose down オプション名` <br>実行すると、実行中のコンテナを停止し、Dockerイメージ、ネットワーク、データボリュームを一括で削除できる。<br>【主なオプション】<br>・`--rmi, all`:すべてのイメージを削除する。<br>・`--rmi local`:カスタムタブのないイメージだけを削除する。<br>・`-v, -volumes`:Compose定義ファイルのデータボリュームを削除する。|
 
 ---
 ## マルチステージビルドによるアプリケーション開発
