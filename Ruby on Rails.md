@@ -84,7 +84,16 @@ Model 名は**単数形**にする
   - 書き換え後、`bundle install` or `bundle update`を実行
 
 ---
+### gem
+#### RubyGemsのバージョンを確認する
+`gem -v`
+#### RubyGemsによりインストールされているgem一覧を確認する
+`gem list`
+
+---
 ### bundler
+#### RubyGemsからbundlerをインストールする
+`gem install bundler`
 #### バージョンを確認する（デフォルトで最新を表示）
 `bundle -v`
 #### 特定のバージョンをインストールする
