@@ -39,6 +39,7 @@ class Hello extends React.Component {
   }
 };
 ```
+
 ### `props`で子コンポーネントに値を渡す
 ```jsx
 // 親コンポーネント
@@ -65,8 +66,6 @@ const Thanks = (props) =>{
 };
 
 export default Thanks;
-```
-```jsx
 ```
 
 ---
