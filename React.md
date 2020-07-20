@@ -1,5 +1,5 @@
 # React
-## 基礎知識
+## React 基礎知識
 ### Functional Component
 - 関数定義
 - `state`やライフサイクルメソッドを持たない
@@ -174,9 +174,141 @@ togglePublished = () => {
   - 再render()後に呼ばれる関数
   - イベント発火時
 #### Unmounting
-コンポーネントを破棄する
+コンポーネントを破棄する（無駄なイベントが解放されて負荷が軽減される）
 - `componentWillUnmount()`
   - コンポーネントが破棄される直前に呼ばれる関数
+
+---
+### 名前付きexport
+- クラスはexportできない
+- 複数の関数をexportできる
+- 記述は２通りある
+```jsx
+// export function 関数名(){}
+export function Foo() {
+  return(
+    <div>Foo</div>
+  )
+}
+// export const 関数名 = () => {}
+export const Bar = () => {
+  return(
+    <div>Bar</div>
+  )
+}
+```
+
+### 名前なし(default)export
+- クラスもexportできる
+- 1ファイル1export
+- ES6で推奨
+- アロー関数は定義後にexportする
+```jsx
+// モジュール
+// src/Foo.jsx
+export default function Foo() {
+  return(
+    <div>Foo</div>
+  )
+};
+
+// モジュール
+// src/Bar.jsx
+const Bar = () => {
+  return(
+    <div>Bar</div>
+  )
+};
+export default Bar
+
+// クラス
+// src/Hoge.jsx
+export default class Hoge extends React.Component{
+  render(){
+    return(
+      <div>Hoge</div>
+    )
+  }
+};
+```
+### モジュール全体をimport
+- モジュール全体をimport
+- 「名前なし(default)export」したモジュールをimport
+```jsx
+// src/Blog.jsx
+import React from 'react';
+import Article from './Article';
+
+// Article.jsx
+const Article = (props) => {
+  return(
+    <div>Article</div>
+  )
+};
+export default Article
+```
+### 関数ごとのimport
+- {}内にimportしたい関数名を記述する
+```jsx
+// src/Hoge.jsx
+import { Foo, Bar } from './FooBar';
+
+// src/FooBar.jsx
+export function Foo() {
+  return(
+    <div>Foo</div>
+  )
+}
+
+export const Bar = () => {
+  return(
+    <div>Bar</div>
+  )
+}
+```
+### 別名import
+- 別名（エイリアス）をつけてimportできる
+- モジュール全体：`* as 別名`
+- モジュールの一部：`{モジュール名 as 新しいモジュール名}`
+```jsx
+// src/Hoge.jsx
+import * as AnotherArticle from './Article';
+import { Foo as AnotherFoo } from './FooBar'
+```
+---
+## React Hooks
+- Class Componentの機能をFunctional Componentでも使えるようになる
+  - クラス（`this）`を使わないため、コードがシンプルになる
+  - Functional Componentでstateを管理できる
+- 完全後方互換
+### `useState()`
+- 「ステートフック」と呼ばれる
+- クラスコンポーネントの`this.state`と`this.setState()`の代替機能
+- 複数のstateを扱う場合、stateごとに宣言する
+```jsx
+// useStateの使い方
+
+// 1. useState関数をimportする
+import React, { setState } from 'react';
+
+// 2. 宣言する
+const [isPublished, togglePublished] = setState(false);
+   // ↑state変数名  // ↑state変更関数名     // ↑stateの初期値
+
+// 3. JSX内で使う
+<input type="checkbox" checked={isPublished} id="check" onClick={() => togglePublished(!isPublished)} />
+```
+---
+### `useEffect()`
+- ライフサイクルメソッドの代替機能
+- Functinal Componentでライフサイクルを使える
+- 時間の流れではなく、機能ごとにコードをまとめられる
+#### 仕組み
+- render()ごとに処理が実行される
+- 代替機能メソッド
+  - `componentDidMount()`
+  - `componentDidUpdate()`
+  - `componentWillUnmount()`
 
 
 
