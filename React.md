@@ -359,3 +359,36 @@ useEffect(() => {
 }, [limit])
 ```
 ---
+### Reactのmapメソッド
+- mapメソッドは「CallBack関数」
+- Reactでmapメソッドを使用する場合は`key`を設定する
+  - `key`はどの要素が追加・変更・削除されたのか識別するため、それぞれの項目に`key`を与える
+- 参考URL：[リストとkey](https://ja.reactjs.org/docs/lists-and-keys.html)
+```jsx
+// 一意に特定できるような文字列を key として選ぶのが最良の方法
+// リスト全体を変更するのではなく、「変更のあった箇所だけ更新する」というReactの思想に基づいた設計を推奨している
+const numbers = [1, 2, 3, 4, 5, 6];
+const ListNumbers = numbers.map((number) =>
+    <li key={number.toString()}>
+      {number}
+    </li>
+ );
+
+const todoList = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.content}
+  </li>
+);
+
+// IDがない場合はインデックスを使用する
+const todoLIst = todos.map((todo) =>
+  <li key={index}>
+    {todo.text}
+  </li>
+);
+
+```
+
+
+
+---
