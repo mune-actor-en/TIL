@@ -388,6 +388,51 @@ const todoLIst = todos.map((todo) =>
 );
 
 ```
+---
+### return内の条件分岐
+- `{}`内はjavaScriptになる
+- 最初に条件式を記述する
+- `()`内に真 or 偽 の時に返すJSXを記述する
+#### `if` のみの場合
+```jsx
+// 「&&」
+{(list.length === 0) && (
+  <Loading />
+)}
+
+```
+#### `if else` の場合
+```jsx
+// 「?」と「:」
+{isQuestion ? (
+  <Avatar alt="icon" src={Harinezumi} />
+) : (
+  <Avatar alt="icon" src={Human} />
+)}
+```
+---
+### コールバック関数における`bind()`
+- renderされる度に毎回コールバック関数が生成されるのでパフォーマンスが落ちてしまう
+  - 上記の事象を防ぐために`bind`を用いる必要がある
+```jsx
+constructor(prpps){
+  super(props);
+  this.slectAnswer = this.selectAnswer.bind(this);
+}
+
+selectAnswer = (selectAnswer, nextQuestionId) => {
+  // 処理を記述する
+}
+
+render() {
+  return(
+    <AnswerList 
+      anwers={this.state.answers}
+      select={this.selectAnswer}
+    />
+  )
+}
+```
 
 
 
