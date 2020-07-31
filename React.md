@@ -433,6 +433,37 @@ render() {
   )
 }
 ```
+---
+### Material-UI
+#### Hook API
+- 基本は`Hook APIを推奨`
+  - 公式のサンプルコードが主にHook APIを使用ため
+```jsx
+export default function Hook() {
+  const classes = useStyles();
+  return <Button className={classes.root}>Hook</Button>;
+}
+```
+
+#### Styled components API
+- コンポーネントのシンタックスに直接スタイルを適用する
+  - 名前とスタイルを紐付ける（Buttonコンポーネントに直接スタイルを当てる）
+```jsx
+export default function StyledComponents() {
+  return <MyButton>Styled Components</MyButton>;
+}
+```
+
+#### Higher-order component API
+- スタイルを当てたコンポーネントを返すコンポーネント
+```jsx
+function HigherOrderComponent(props) {
+  const { classes } = props;
+  return <Button className={classes.root}>Higher-order component</Button>;
+}
+```
+---
+
 
 
 
