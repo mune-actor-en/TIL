@@ -325,7 +325,7 @@ useEffect(() => {
   }
 })
 ```
-### 2. Mount時にのみに実行
+#### 2. Mount時にのみに実行
 - 第2引数の配列内の値を前回のrenderと今回のrenderと比較する
   - 変更があればCallBack関数を実行する
 - 第2引数に空の配列を渡すと、初回（Mount時）のみ実行される
@@ -334,7 +334,7 @@ useEffect(() => {
   console.log(' Reander!');
 }, [])
 ```
-### 3. Mount&Unmount時のみ実行
+#### 3. Mount&Unmount時のみ実行
 - 1と2の複合型
 - 通常のCallBack関数はMount時（1回のみ）実行される
   - 2回目以降は配列が空のため、Updatingは実行されない
@@ -347,7 +347,7 @@ useEffect(() => {
   }
 }, [])
 ```
-### 4. 特定のrender時に実行
+#### 4. 特定のrender時に実行
 - Mount時に実行される
 - limitの値が変わった時に実行される
   - limitの値が`true`から`false`に変更した時に実行

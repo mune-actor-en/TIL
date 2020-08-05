@@ -3,6 +3,7 @@
 ## Categories
 - Alias
 - Docker
+- Firebase
 - Git
 - Heroku
 - Homebrew
