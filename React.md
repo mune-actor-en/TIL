@@ -326,6 +326,7 @@ useEffect(() => {
 })
 ```
 #### 2. Mount時にのみに実行
+- `componentDidMount`と同じ挙動をする
 - 第2引数の配列内の値を前回のrenderと今回のrenderと比較する
   - 変更があればCallBack関数を実行する
 - 第2引数に空の配列を渡すと、初回（Mount時）のみ実行される

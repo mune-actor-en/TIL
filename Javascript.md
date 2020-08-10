@@ -133,5 +133,31 @@ Window.location.reload();
 #### ローカルストレージの問題点
 - 明示的にデータを削除しない限り、データが消えない（ゴミがたまりやすい）
 - 同一のオリ銀で複数のアプリを稼働する場合、変数名が衝突しがち
+---
+### 即時関数
+即時関数とは、**関数を定義すると同時に実行される関数**のこと。
+```js
+// 基本構文
+(function () {
+    //処理
+}());
+
+// 返り値
+let result = (function (item1, item2) {
+    return item1 + item2;
+}(1, 2));
+
+// async付きの即時関数
+    (async () => {
+     // 非同期処理
+     await db.collection('questions').get().then(snapshots => {
+        snapshots.forEach(doc => {
+          dataset[doc.id] = doc.data()
+        })
+     });
+    })();
+   // ↑()で即時実行される
+```
+
 
 ---
