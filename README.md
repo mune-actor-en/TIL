@@ -14,8 +14,8 @@
   <dt>Javascript</dt>
   <dt>Mac</dt>
   <dt>React</dt>
-    <dd><img src="https://user-images.githubusercontent.com/46050182/89784240-4c792e00-db53-11ea-98e8-66c6777f95d7.png" width=15%></dd>
+    <dd><img src="https://user-images.githubusercontent.com/46050182/89784240-4c792e00-db53-11ea-98e8-66c6777f95d7.png" width=10%></dd>
   <dt>Ruby</dt>
-    <dd><img src="https://user-images.githubusercontent.com/46050182/89784242-4daa5b00-db53-11ea-8c4d-7436bd175601.png" width=10%></dd>
+    <dd><img src="https://user-images.githubusercontent.com/46050182/89784242-4daa5b00-db53-11ea-8c4d-7436bd175601.png" width=7%></dd>
   <dt>Ruby on Rails</dt>
 </dl>
