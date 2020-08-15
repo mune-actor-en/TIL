@@ -474,11 +474,13 @@ function HigherOrderComponent(props) {
 ---
 ### 導入
 #### React + Typescriptの環境を構築
-- `npx create-react-app my-app --template typescript`
-- または、`yarn create react-app my-app --template typescript`
+`npx create-react-app my-app --template typescript`<br>
+または<br>
+`yarn create react-app my-app --template typescript`
 #### Typescriptに必要な「Create React App」の資源をインストール
-- `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
-- または、`yarn add typescript @types/node @types/react @types/react-dom @types/jest`
+`npm install --save typescript @types/node @types/react @types/react-dom @types/jest`<br>
+または<br>
+`yarn add typescript @types/node @types/react @types/react-dom @types/jest`
 #### `index.ts`をリネーム
 `src/index.ts`を`src/index.tsx`に名前を変更し、サーバーを再起動する
 
@@ -501,11 +503,11 @@ let planet: string = 'earth';
 #### リテラル型
 - リテラル型とは、「プリミティブ型を細分化」したもの
   - 文字列のリテラル型
-    - `'planet'`
+   `'planet'`
   - 数値のリテラル型
-    - `5` 
+    `5` 
   - 真偽値のリテラル型
-    - `true`
+    `true`
 ```tsx
 // 'earth'は'earth'という文字列しか許されない型になっている
 const planet: 'earth' = 'earth';
