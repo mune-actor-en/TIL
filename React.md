@@ -464,8 +464,127 @@ function HigherOrderComponent(props) {
 }
 ```
 ---
+## React + Typescript
+### 参考URL
+- [Create React App Adding TypeScript](https://create-react-app.dev/docs/adding-typescript/)
+- [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets)
+- [ReactをTypeScriptで書く1: TypeScript編](https://www.dkrk-blog.net/javascript/react_ts01#type-alias%E5%9E%8B%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)
+- [TypeScriptの型入門](https://qiita.com/uhyo/items/e2fdef2d3236b9bfe74a)
 
+---
+### 導入
+#### React + Typescriptの環境を構築
+- `npx create-react-app my-app --template typescript`
+- または、`yarn create react-app my-app --template typescript`
+#### Typescriptに必要な「Create React App」の資源をインストール
+- `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
+- または、`yarn add typescript @types/node @types/react @types/react-dom @types/jest`
+#### `index.ts`をリネーム
+`src/index.ts`を`src/index.tsx`に名前を変更し、サーバーを再起動する
 
+---
+### Typescriptの基本
+#### 型定義
+明示的に型を指定するため、変数名の後に`:型名`をつける（Type Annotation）
+```tsx
+// planetには文字列のみ代入できる
+let planet: string = 'earth';
+```
+#### プリミティブ型
+- string
+- number
+- boolean
+- null
+- undefined
+- symbol
+- bigint
+#### リテラル型
+- リテラル型とは、「プリミティブ型を細分化」したもの
+  - 文字列のリテラル型
+    - `'planet'`
+  - 数値のリテラル型
+    - `5` 
+  - 真偽値のリテラル型
+    - `true`
+```tsx
+// 'earth'は'earth'という文字列しか許されない型になっている
+const planet: 'earth' = 'earth';
+const galaxy: 'blackHole' = 'earth';    //当然'blackHole'は'earth'という文字列ではないため、エラーになる
+```
+文字列のリテラル型は`string`型に属しているので、`string`型として扱うことができる。（他の型も同じ）
+```jsx
+const planet: 'earth' = 'earth';
+const galaxy: string = 'earth';    // 'earth'はstring型に含まれるので型エラーにならない
+```
+#### リテラル型と型推論
+下記のサンプルは`const`で変数宣言している、つまり再代入できないのでずっと`'earth'`が代入していることを保証している。<br>
+変数`planet`は`'earth'`が代入されているので、`'earth'`型となる。
+```tsx
+const planet = 'earth';    // planetは'earth'型を持つ
+const galaxy: 'blackHole' = planet;    // 'earth'型は'blackHole'型ではないためエラーとなる
+```
+`const`ではなく`let`を使用する場合は変数が置き換わる可能性があるため、リテラル型で限定するのではなく「プリミティブ型」で定義する。
+```tsx
+let planet = 'earth';     // planetはstring型で推論される
+const galaxy: string = planet;
+const comet = 'cometHalley' = planet;    // planetはstring型で型推論されるが、'cometHalley'型を持つcometには代入できない
+```
+#### any型
+なんでも代入できる。しかし、型定義のメリットを活かせないので極力使用しない。
+```tsx
+// planetにはなんでも代入できる
+let planet: any = 'earth';
+```
+#### union型
+なんらかの型が代入される、または代入してほしい場合に使用する。<br>
+`|`（パイプ）でつなげて記述する。
+```tsx
+// planetにはstringかundefinedを代入できる
+let planet: string | undefined = 'earth';
+```
+上記のように`undefined`が代入される可能性がある場合に、`undefined`では使用できない`length`などを実行すると、エラーになってしまう。<br>
+そこで`tsconfig.json`ファイルに`"strictPropertyInitialization": true`を設定すると、あらかじめエラーを知らせてくれる。
+```tsx
+let planet: string | undefined;
+planet.length;    // 「undefinedの可能性があります」と警告してくれる
+```
+コンパイルエラーを防ぐためには、型定義に合った適切な値を代入することでコンパイルが通るようになる。
+```tsx
+let planet: string | undefined;
+planet = 'earth';    // 適切な値を代入する
+planet.length;
+```
+#### 文字列リテラル
+特定の文字列だけ代入してほしい場合に使用する。
+```tsx
+// planetには「earth」か「jupiter」か「sun」が代入できる
+let planet: 'earth' | 'jupiter' | 'sun' = 'earth';
+```
+#### 関数
+「引数」と「返り値」の型を指定できる。<br>
+返り値がない場合は、`void`を指定する。
+```tsx
+// アロー関数で記述
+// number（数値）で型定義
+// 返り値なしなので「void」
+const addCount = (num: number): void =>{
+  console.log(num + 1);
+}
+```
+#### 配列
+```tsx
+const planet: string[] = ['earth', 'moon', 'sun',];
+```
+#### オブジェクト
+```tsx
+const planet: {
+  name: string;
+  size: number;
+} = {
+  name: 'earth',
+  size: 6371
+}
+```
 
 
 ---
