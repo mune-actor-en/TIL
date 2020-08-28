@@ -470,6 +470,7 @@ function HigherOrderComponent(props) {
 - [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets)
 - [ReactをTypeScriptで書く1: TypeScript編](https://www.dkrk-blog.net/javascript/react_ts01#type-alias%E5%9E%8B%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9)
 - [TypeScriptの型入門](https://qiita.com/uhyo/items/e2fdef2d3236b9bfe74a)
+- [TypeScriptのInterfaceとTypeの比較](https://qiita.com/tkrkt/items/d01b96363e58a7df830e)
 
 ---
 ### 導入
@@ -584,6 +585,16 @@ const planet: {
   size: 6371
 }
 ```
+---
+#### InterfaceとTypeの違い
+- Interface
+基本的にInterfaceを使うといい。要素をあとで拡張したい場合に追加できるため
+|項目|Interface|Type|
+|:--|:--|:--|
+|使いどころ|クラスやオブジェクトを定義|型もしくは型の組み合わせに別名をつける|
+|継承|○|○<br>※交差型（複数の型を全て満たす型）で可能|
+|同じ要素の宣言|マージされる|エラーになる|
+|交差型・共用体型・タプル型|×|○|
 
 
 ---
