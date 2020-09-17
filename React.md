@@ -81,11 +81,11 @@ class Hello extends React.Component{
   render() {
     return (
       // 複数のコンポーネントをラップできる
-      <React.Component>
+      <React.Fragment>
         <Hello title={"こんにちは！"} />
         <Hello title={"元気？"} />
         <Hello title={"久しぶり！"} />
-      </React.Component>
+      </React.Fragment>
 
       // こちらでもOK！
       <>
