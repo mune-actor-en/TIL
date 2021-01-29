@@ -73,7 +73,7 @@
   - `/usr/local/bin/git --version`
 6. パス設定の優先順位を確認する（表示が上にあるほど優先度が高い）
 - `cat /etc/paths`
-```git
+```shell
 /usr/local/bin # ← これが一番優先順位が高い。
 /usr/bin
 /bin
@@ -83,7 +83,7 @@
 7. 環境設定の隠しファイルをコマンドラインで開く
 - `open ~/.bash_profile`
 8. Gitだけに以下の内容を追記して個別パスを指定する
-```rb
+```shell
 if [ -f ~/.bashrc ]; then
  . ~/.bashrc
 fi
