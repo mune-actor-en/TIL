@@ -359,8 +359,33 @@ useEffect(() => {
   console.log('Render!');
 }, [limit])
 ```
+
+### useCallback
+## Custom Hooks
+Custom Hooksとは、Hooksで用意されている関数（useStateやuseEffectなど）を組み合わせて、独自の関数を作成することを意味する。
+```tsx
+// customHooks.tsx
+
+import { ChangeEvent, Dispatch, SetStateAction, useCallback } from 'react';
+
+type UseChangeEvent<T> = {
+  (update: Dispatch<SetStateAction<T>>): (event: ChangeEvent<HTMLInputElement>) => void
+}
+
+// 関数名の先頭に「use」を付けると、HooksがCustom Hooksだと認識してくれる
+// ※本来ならば「customHooks.tsx」はReactのコンポーネントファイルではないため、「useCallback」は使用できないが、Custom Hooks内（「use」がついたもの）であれば使用可能となる。
+export const useStringChangeEvent: UseChangeEvent<string> = (update) => {
+  return useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      update(event.target.value);
+    }, [update]
+  );
+
+```
+
+
 ---
-### Reactのmapメソッド
+## Reactのmapメソッド
 - mapメソッドは「CallBack関数」
 - Reactでmapメソッドを使用する場合は`key`を設定する
   - `key`はどの要素が追加・変更・削除されたのか識別するため、それぞれの項目に`key`を与える
@@ -585,10 +610,29 @@ const planet: {
   size: 6371
 }
 ```
+
+#### ジェネリック型
+型を後から実際の型を定義できる。（型の再利用が可能）<br>
+```tsx
+type UseChangeEvent<T> = {
+// 「T」の部分を「ジェネリック型パラメーター」という
+  (update: Dispatch<SetStateAction<T>>): (event: ChangeEvent<HTMLInputElement>) => void
+}
+
+// string型の場合
+export const useStringChangeEvent: UseChangeEvent<string> = (update) => {
+}
+
+// number型の場合
+export const useNumberChangeEvent: UseChangeEvent<number>= (update) => {
+}
+```
+
 ---
 #### InterfaceとTypeの違い
 - Interface
 基本的にInterfaceを使うといい。要素をあとで拡張したい場合に追加できるため
+
 |項目|Interface|Type|
 |:--|:--|:--|
 |使いどころ|クラスやオブジェクトを定義|型もしくは型の組み合わせに別名をつける|
