@@ -73,7 +73,7 @@
   - `/usr/local/bin/git --version`
 6. パス設定の優先順位を確認する（表示が上にあるほど優先度が高い）
 - `cat /etc/paths`
-```rb
+```git
 /usr/local/bin # ← これが一番優先順位が高い。
 /usr/bin
 /bin
@@ -95,12 +95,12 @@ export PATH
 - `source ~/.bash_profile`
 10. Gitのバージョンを確認する
 - `git --version`
-```rb
+```git
 git version 2.24.0
 ```
 11. 場所（パス）を確認する
 - `which git`
-```rb
+```git
 /usr/local/bin/git
 ```
 ### Macのターミナルでコマンド補完を有効にする
