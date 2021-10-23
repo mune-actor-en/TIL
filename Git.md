@@ -201,10 +201,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 1. 最新の変更履歴を取得する
    - `git fetch`
 2. 最新の変更履歴と現在の状態をマージする
-
    - `git merge --allow-unrelated-histories origin/master`
 
-＜解説＞
+＜解説＞<br>
 git2.9 から merge コマンドと pull コマンドは、`--allow-unrelated-histories`を指定しない限り、無関係な変更履歴を持つ 2 つのブランチをマージできなくなった。
 
 ---
